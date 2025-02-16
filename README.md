@@ -123,7 +123,8 @@ docker compose up -d
 ```
 4. Acceder a [localhost:1234](http://localhost:1234) (o el puerto que hayas elegido) y usar
 5. Actualizar el sitio
-Simplemente accedes al directorio del repositorio y haces un `git pull`
+
+   Simplemente accedes al directorio del repositorio y haces un `git pull`
 
 ## 👨‍💻 Desarrollo
 
