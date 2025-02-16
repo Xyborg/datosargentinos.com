@@ -1,0 +1,23 @@
+{
+  "name": "Safe ID - DNI Seguro",
+  "short_name": "Safe ID",
+  "description": "Comparte tu DNI de forma segura agregando marca de agua y ofuscando datos sensibles",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+} 
