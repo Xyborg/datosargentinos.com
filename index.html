@@ -108,6 +108,9 @@
                     <canvas id="canvas" class="w-full"></canvas>
                 </div>
             </div>
+            <button id="shareBtn" class="w-full gradient-button text-white py-4 rounded-lg text-lg font-semibold mb-4" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%)">
+                Compartir Imagen
+            </button>
             <button id="downloadBtn" class="w-full gradient-button text-white py-4 rounded-lg text-lg font-semibold">
                 Descargar Imagen
             </button>
@@ -399,6 +402,41 @@
             link.download = 'safeid_datosargentinoscom.png';
             link.href = canvas.toDataURL('image/png');
             link.click();
+        });
+
+        /**
+         * Sistema de compartir
+         * Utiliza la Web Share API para compartir la imagen
+         * Solo disponible en navegadores y dispositivos compatibles
+         */
+        document.getElementById('shareBtn').addEventListener('click', async () => {
+            try {
+                // Convertir el canvas a un Blob
+                const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
+                const file = new File([blob], 'safeid_datosargentinoscom.png', { type: 'image/png' });
+
+                // Verificar si el navegador soporta Web Share API
+                if (navigator.share) {
+                    await navigator.share({
+                        title: 'DNI Protegido',
+                        text: 'DNI con marca de agua y datos protegidos via datosargentinos.com',
+                        files: [file]
+                    });
+                } else {
+                    // Fallback para navegadores que no soportan Web Share API
+                    const link = document.createElement('a');
+                    link.download = 'safeid_datosargentinoscom.png';
+                    link.href = canvas.toDataURL('image/png');
+                    link.click();
+                }
+            } catch (error) {
+                console.error('Error al compartir:', error);
+                // Si hay un error, intentamos descargar como fallback
+                const link = document.createElement('a');
+                link.download = 'safeid_datosargentinoscom.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }
         });
 
         /**
