@@ -98,6 +98,34 @@ Accede a la herramienta en: https://datosargentinos.com
 - CSS moderno con Tailwind-like utilities
 - Diseño responsive y mobile-first
 
+## 💻️ Deploy en local
+
+### Usando docker
+
+1. Clonar repositorio
+```bash
+git clone https://github.com/xyborg/datosargentinos.com --depth 1
+```
+2. Crear archivo compose.yml con el siguiente contenido:
+```docker
+services:
+   app:
+      image: httpd:latest
+      volumes:
+         - ./datosargentinos.com:/usr/local/apache2/htdocs/
+      ports:
+         - 1234:80
+      restart: always
+```
+3. Levantar el server
+```bash
+docker compose up -d
+```
+4. Acceder a [localhost:1234](http://localhost:1234) (o el puerto que hayas elegido) y usar
+5. Actualizar el sitio
+
+   Simplemente accedes al directorio del repositorio y haces un `git pull`
+
 ## 👨‍💻 Desarrollo
 
 Este proyecto fue desarrollado por [Martin Aberastegue](https://www.martinaberastegue.com), inspirado en [Saferlayer.com](https://saferlayer.com) y adaptado específicamente para el caso de uso del DNI Argentino.
