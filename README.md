@@ -15,8 +15,10 @@ Accede a la herramienta en: https://datosargentinos.com
 - 📱 Totalmente responsive (funciona en móviles y tablets)
 - 🔍 Vista previa en tiempo real
 - ↔️ Comparador visual antes/después
+- 📲 Compatible con PWA (instalable como app)
+- 🌐 Funciona sin conexión (offline)
 
-## 🛡️ Seguridad
+## ��️ Seguridad
 
 - Todo el procesamiento se realiza en el navegador del usuario
 - No se almacena ninguna imagen en servidores externos
@@ -42,6 +44,11 @@ Accede a la herramienta en: https://datosargentinos.com
 4. **Descargar Resultado**
    - Previsualiza el resultado final
    - Descarga la imagen protegida
+
+5. **Instalar como App (Opcional)**
+   - En Chrome/Edge: Haz clic en el ícono "Instalar" en la barra de direcciones
+   - En móviles: Selecciona "Agregar a pantalla principal"
+   - Usa la app sin conexión cuando la necesites
 
 ## 💡 Recomendaciones de Uso
 
@@ -75,6 +82,14 @@ Accede a la herramienta en: https://datosargentinos.com
 
 - **¿Dónde puedo ver el código fuente del proyecto?**
   - El código es open source y está disponible en [GitHub](https://github.com/Xyborg/datosargentinos.com). Puedes revisarlo, contribuir o reportar problemas.
+
+- **¿Puedo usar la herramienta sin internet?**
+  - Sí, una vez instalada como PWA (Progressive Web App) en tu dispositivo, puedes usar todas las funciones sin conexión a internet.
+
+- **¿Cómo instalo la app en mi dispositivo?**
+  - En navegadores de escritorio: Busca el ícono de instalación en la barra de direcciones
+  - En dispositivos móviles: Selecciona "Agregar a pantalla principal" en el menú del navegador
+  - La app se instalará y podrás acceder directamente desde tu escritorio o pantalla de inicio
 
 ## 🔧 Tecnologías Utilizadas
 
