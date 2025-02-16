@@ -86,9 +86,15 @@
                 </button>
                 <div id="blurControls" class="bg-purple-50 p-4 rounded-lg hidden">
                     <label class="block text-sm font-medium text-purple-700 mb-2">
-                        Intensidad de Ofuscación: <span id="blurValue">5</span>
+                        Intensidad de Ofuscación: <span id="blurValue">10</span>
                     </label>
-                    <input type="range" id="blurIntensity" min="3" max="15" value="5" 
+                    <input type="range" id="blurIntensity" min="3" max="15" value="10" 
+                        class="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer mb-4">
+                    
+                    <label class="block text-sm font-medium text-purple-700 mb-2">
+                        Tamaño del Cursor: <span id="cursorSizeValue">10</span>px
+                    </label>
+                    <input type="range" id="cursorSize" min="5" max="50" value="10" 
                         class="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer">
                 </div>
                 <div id="blurInstructions" class="bg-purple-50 text-purple-700 p-4 rounded-lg" style="display: none;">
@@ -203,8 +209,8 @@
         const blurInstructions = document.getElementById('blurInstructions');
         
         /**
-         * Configuración de los canvas para el procesamiento de imágenes
-         * Se utilizan dos canvas:
+         * Configuración de los canvases para el procesamiento de imágenes
+         * Se utilizan dos canvases:
          * - originalCanvas: mantiene la imagen original con las áreas ofuscadas
          * - canvas: muestra el resultado final con la marca de agua
          * 
@@ -360,10 +366,16 @@
          */
         const blurIntensity = document.getElementById('blurIntensity');
         const blurValue = document.getElementById('blurValue');
+        const cursorSize = document.getElementById('cursorSize');
+        const cursorSizeValue = document.getElementById('cursorSizeValue');
         const blurControls = document.getElementById('blurControls');
 
         blurIntensity.addEventListener('input', function() {
             blurValue.textContent = this.value;
+        });
+
+        cursorSize.addEventListener('input', function() {
+            cursorSizeValue.textContent = this.value;
         });
 
         /**
@@ -509,7 +521,7 @@
          * El proceso es irreversible y se realiza localmente
          */
         function applyBlur(x, y) {
-            const radius = 10;
+            const radius = parseInt(cursorSize.value);
             const diameter = radius * 2;
             const imageData = originalCtx.getImageData(x - radius, y - radius, diameter, diameter);
             const pixels = imageData.data;
