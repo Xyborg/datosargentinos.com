@@ -56,6 +56,26 @@ Accede a la herramienta en: https://datosargentinos.com
   - Agrega la fecha
   - Ejemplo: "Para Banco XYZ - Validación de identidad - 16/02/2024"
 
+## ❓ Preguntas Frecuentes
+
+- **¿Es seguro usar esta herramienta?**
+  - Sí, la marca de agua se procesa localmente en tu navegador. Ninguna imagen se sube a servidores externos, garantizando la privacidad de tus datos.
+
+- **¿Por qué debo proteger mi DNI al compartirlo?**
+  - Compartir tu DNI sin protección puede llevar a suplantación de identidad y fraudes. Al agregar una marca de agua y ofuscar datos sensibles, reduces significativamente estos riesgos.
+
+- **¿Qué datos debo ofuscar de mi DNI?**
+  - Se recomienda ofuscar el número de trámite, los códigos de barras y QR, y cualquier otro dato que no sea necesario para el propósito específico del trámite.
+
+- **¿Qué texto debo usar en la marca de agua?**
+  - Es recomendable incluir el nombre del destinatario y el propósito específico, por ejemplo: "Para Banco XYZ - Validación de identidad - DD/MM/AAAA".
+
+- **¿Las imágenes procesadas son válidas para trámites?**
+  - Sí, siempre que los datos principales (foto, nombre, número de DNI) sean claramente visibles. Consulta con la entidad específica sobre sus requisitos.
+
+- **¿Dónde puedo ver el código fuente del proyecto?**
+  - El código es open source y está disponible en [GitHub](https://github.com/Xyborg/datosargentinos.com). Puedes revisarlo, contribuir o reportar problemas.
+
 ## 🔧 Tecnologías Utilizadas
 
 - HTML5 Canvas para procesamiento de imágenes
