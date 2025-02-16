@@ -2,6 +2,7 @@ const CACHE_NAME = 'safe-id-v1';
 const urlsToCache = [
   '/',
   '/index.html',
+  '/index-en.html',
   '/manifest.json',
   '/logo.png',
   '/dni-before.png',

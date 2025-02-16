@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Safe ID - Comparte tu DNI de Forma Segura - Datos Argentinos</title>
+    <title>Safe ID - Share Your ID Securely - Datos Argentinos</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <meta name="description" content="Comparte tu DNI de forma seguro agregando una marca de agua y ofuscando tus datos sensibles.">
+    <meta name="description" content="Share your ID securely by adding a watermark and obscuring your sensitive data.">
     <base href="https://datosargentinos.com/">
     <meta property="og:url" content="https://datosargentinos.com">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Safe ID - Comparte tu DNI de Forma Segura - Datos Argentinos">
-    <meta property="og:description" content="Comparte tu DNI de forma seguro agregando una marca de agua y ofuscando tus datos sensibles.">
+    <meta property="og:title" content="Safe ID - Share Your ID Securely - Datos Argentinos">
+    <meta property="og:description" content="Share your ID securely by adding a watermark and obscuring your sensitive data.">
     <meta property="og:image" content="https://datosargentinos.com/ogimage.png">
     <meta name="twitter:card" content="summary_large_image">
     <meta property="twitter:domain" content="datosargentinos.com">
     <meta property="twitter:url" content="https://datosargentinos.com">
-    <meta name="twitter:title" content="Safe ID - Comparte tu DNI de Forma Segura - Datos Argentinos">
-    <meta name="twitter:description" content="Comparte tu DNI de forma seguro agregando una marca de agua y ofuscando tus datos sensibles.">
+    <meta name="twitter:title" content="Safe ID - Share Your ID Securely - Datos Argentinos">
+    <meta name="twitter:description" content="Share your ID securely by adding a watermark and obscuring your sensitive data.">
     <meta name="twitter:image" content="https://datosargentinos.com/ogimage.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -41,14 +41,15 @@
 <body class="flex flex-col items-center pt-8 pb-20">
     <div class="w-full max-w-4xl p-8 card rounded-2xl shadow-xl text-center mb-16 relative">
         <div class="absolute top-4 right-4 text-sm">
-            <a href="/" class="text-gray-800">Español</a>
+            <a href="/" class="text-blue-600 hover:text-gray-800">Español</a>
             <span class="text-gray-400 mx-2">|</span>
-            <a href="/index-en.html" class="text-blue-600 hover:text-gray-800">English</a>
+            <a href="/index-en.html" class="text-gray-800">English</a>
         </div>
-        <a href="https://datosargentinos.com" title="Safe ID - Comparte tu DNI de Forma Segura - Datos Argentinos" class="mt-8 block">
-            <img src="/logo.png" alt="Safe ID - Comparte tu DNI de Forma Segura - Datos Argentinos" class="mx-auto mb-6 h-20 transform hover:scale-105 transition-transform duration-300">
+        <a href="https://datosargentinos.com" title="Safe ID - Share Your ID Securely - Datos Argentinos" class="mt-8 block">
+            <img src="/logo.png" alt="Safe ID - Share Your ID Securely - Datos Argentinos" class="mx-auto mb-6 h-20 transform hover:scale-105 transition-transform duration-300">
         </a>
-        <h1 class="text-4xl font-bold mb-8 text-gray-800">Comparte tu DNI de Forma Segura</h1>
+        <h1 class="text-4xl font-bold mb-8 text-gray-800">Share Your ID Securely</h1>
+        
         <!-- Step 1: Upload and Text -->
         <div id="step1" class="space-y-6 step-transition">
             <label class="custom-file-upload block">
@@ -56,58 +57,58 @@
                 <svg class="w-12 h-12 mx-auto mb-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
                 </svg>
-                <p class="text-lg text-gray-600">Arrastra tu imagen o toca aquí para subirla</p>
-                <p class="text-sm text-gray-500 mt-2">Soporta: JPG y PNG</p>
+                <p class="text-lg text-gray-600">Drag your image or tap here to upload</p>
+                <p class="text-sm text-gray-500 mt-2">Supports: JPG and PNG</p>
             </label>
             <div class="relative">
                 <div class="relative">
                     <div class="relative">
-                        <input type="text" id="watermarkText" maxlength="60" placeholder="Ingresa el texto de la marca de agua (máx. 60 caracteres)" 
+                        <input type="text" id="watermarkText" maxlength="60" placeholder="Enter watermark text (max. 60 characters)" 
                             class="w-full p-4 pr-16 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-center text-lg">
                         <span class="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-500">
                             <span id="charCount">0</span>/60
                         </span>
                     </div>
                     <p class="mt-2 text-sm text-gray-600 bg-blue-50 p-3 rounded-lg">
-                        <strong>Tip Marca de Agua:</strong> Para mayor seguridad, incluye el nombre completo del destinatario y el motivo específico (ej: "Para Juan Pérez - Validación de identidad en Banco XYZ")
+                        <strong>Watermark Tip:</strong> For better security, include the recipient's full name and specific purpose (e.g., "For John Doe - Identity verification at XYZ Bank")
                     </p>
                 </div>
             </div>
             <button id="nextToPreviewBtn" class="w-full gradient-button text-white py-4 rounded-lg text-lg font-semibold hover:opacity-90">
-                Siguiente
+                Next
             </button>
         </div>
 
         <!-- Step 2: Preview and Blur -->
         <div id="step2" class="hidden step-transition">
             <div class="mb-6">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Vista Previa y Ofuscación de Datos</h2>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Preview and Data Obscuring</h2>
                 <div class="canvas-container">
                     <canvas id="originalCanvas" class="w-full cursor-crosshair"></canvas>
                 </div>
             </div>
             <div class="space-y-4">
                 <button id="enableBlurBtn" class="w-full blur-button gradient-button text-white py-4 rounded-lg text-lg font-semibold">
-                    Ofuscar Datos
+                    Obscure Data
                 </button>
                 <div id="blurControls" class="bg-purple-50 p-4 rounded-lg hidden">
                     <label class="block text-sm font-medium text-purple-700 mb-2">
-                        Intensidad de Ofuscación: <span id="blurValue">10</span>
+                        Obscuring Intensity: <span id="blurValue">10</span>
                     </label>
                     <input type="range" id="blurIntensity" min="3" max="15" value="10" 
                         class="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer mb-4">
                     
                     <label class="block text-sm font-medium text-purple-700 mb-2">
-                        Tamaño del Cursor: <span id="cursorSizeValue">10</span>px
+                        Cursor Size: <span id="cursorSizeValue">10</span>px
                     </label>
                     <input type="range" id="cursorSize" min="5" max="50" value="10" 
                         class="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer">
                 </div>
                 <div id="blurInstructions" class="bg-purple-50 text-purple-700 p-4 rounded-lg" style="display: none;">
-                    Haz clic y arrastra para ofuscar áreas sensibles, y luego aplica la marca de agua
+                    Click and drag to obscure sensitive areas, then apply the watermark
                 </div>
                 <button id="nextToWatermarkBtn" class="w-full gradient-button text-white py-4 rounded-lg text-lg font-semibold">
-                    Aplicar Marca de Agua
+                    Apply Watermark
                 </button>
             </div>
         </div>
@@ -115,96 +116,96 @@
         <!-- Step 3: Final Result -->
         <div id="step3" class="hidden step-transition">
             <div class="mb-6">
-                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Resultado Final</h2>
+                <h2 class="text-2xl font-semibold text-gray-800 mb-4">Final Result</h2>
                 <div class="canvas-container">
                     <canvas id="canvas" class="w-full"></canvas>
                 </div>
             </div>
             <button id="shareBtn" class="w-full gradient-button text-white py-4 rounded-lg text-lg font-semibold mb-4" style="background: linear-gradient(135deg, #059669 0%, #10b981 100%)">
-                Compartir Imagen
+                Share Image
             </button>
             <button id="downloadBtn" class="w-full gradient-button text-white py-4 rounded-lg text-lg font-semibold">
-                Descargar Imagen
+                Download Image
             </button>
             <a href="#" id="startOverBtn" class="block mt-12 text-gray-600 hover:text-gray-800 text-base transition-colors duration-200">
                 <svg xmlns="http://www.w3.org/2000/svg" class="inline-block w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                 </svg>
-                Volver a empezar
+                Start Over
             </a>
         </div>
     </div>
 
     <!-- FAQ Section -->
     <div class="w-full max-w-4xl p-8 card rounded-2xl shadow-xl mt-8">
-        <h2 class="text-2xl font-semibold text-gray-800 mb-8 text-center">Preguntas Frecuentes</h2>
+        <h2 class="text-2xl font-semibold text-gray-800 mb-8 text-center">Frequently Asked Questions</h2>
         <div class="space-y-6">
             <div class="faq-question">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">¿Es seguro usar esta herramienta?</h3>
-                <p class="highlight">Sí, la marca de agua se procesa localmente en tu navegador. Ninguna imagen se sube a servidores externos, garantizando la privacidad de tus datos.</p>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Is it safe to use this tool?</h3>
+                <p class="highlight">Yes, the watermark is processed locally in your browser. No images are uploaded to external servers, ensuring your data privacy.</p>
             </div>
             <div class="faq-question">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">¿Por qué debo proteger mi DNI al compartirlo?</h3>
-                <p class="text-gray-600">Compartir tu DNI sin protección puede llevar a suplantación de identidad y fraudes. Al agregar una marca de agua y ofuscar datos sensibles, reduces significativamente estos riesgos.</p>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Why should I protect my ID when sharing it?</h3>
+                <p class="text-gray-600">Sharing your ID without protection can lead to identity theft and fraud. By adding a watermark and obscuring sensitive data, you significantly reduce these risks.</p>
             </div>
             <div class="faq-question">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">¿Qué datos debo ofuscar de mi DNI?</h3>
-                <p class="text-gray-600">Se recomienda ofuscar el número de trámite, los códigos de barras y QR, y cualquier otro dato que no sea necesario para el propósito específico del trámite.</p>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">What data should I obscure from my ID?</h3>
+                <p class="text-gray-600">It's recommended to obscure the transaction number, barcodes, QR codes, and any other data that isn't necessary for the specific purpose of the procedure.</p>
             </div>
             <div class="faq-question">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">¿Qué texto debo usar en la marca de agua?</h3>
-                <p class="text-gray-600">Es recomendable incluir el nombre del destinatario y el propósito específico, por ejemplo: "Para Banco XYZ - Validación de identidad - DD/MM/AAAA".</p>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">What text should I use in the watermark?</h3>
+                <p class="text-gray-600">It's recommended to include the recipient's name and specific purpose, for example: "For XYZ Bank - Identity verification - MM/DD/YYYY".</p>
             </div>
             <div class="faq-question">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">Vista Previa</h3>
-                <p class="text-gray-600 mt-6">Desliza para ver la diferencia entre la imagen original y el resultado final</p><br />
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Preview</h3>
+                <p class="text-gray-600 mt-6">Slide to see the difference between the original image and the final result</p><br />
                     <div class="comparison-slider-wrapper">
-                        <img src="/dni-after.png" alt="Imagen con marca de agua">
+                        <img src="/dni-after.png" alt="Image with watermark">
                         <div class="comparison-slider">
-                            <img src="/dni-before.png" alt="Imagen original">
+                            <img src="/dni-before.png" alt="Original image">
                         </div>
                         <div class="slider-handle"></div>
                     </div>
             </div>
             <div class="faq-question">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">¿Las imágenes procesadas son válidas para trámites?</h3>
-                <p class="text-gray-600">Sí, siempre que los datos principales (foto, nombre, número de DNI) sean claramente visibles. Consulta con la entidad específica sobre sus requisitos.</p>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Are processed images valid for procedures?</h3>
+                <p class="text-gray-600">Yes, as long as the main data (photo, name, ID number) is clearly visible. Check with the specific entity about their requirements.</p>
             </div>
             <div class="faq-question">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">¿Dónde puedo ver el código fuente del proyecto?</h3>
-                <p class="text-gray-600">El código es open source y está disponible en <a href="https://github.com/Xyborg/datosargentinos.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-gray-800">GitHub</a>. Puedes revisarlo, contribuir o reportar problemas.</p>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Where can I see the project's source code?</h3>
+                <p class="text-gray-600">The code is open source and available on <a href="https://github.com/Xyborg/datosargentinos.com" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-gray-800">GitHub</a>. You can review it, contribute, or report issues.</p>
             </div>
             <div class="faq-question">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">¿Puedo usar la herramienta sin conexión a internet?</h3>
-                <p class="text-gray-600">Sí, la herramienta es una PWA (Progressive Web App) que puedes instalar en tu dispositivo. Una vez instalada, funciona completamente sin conexión a internet.</p>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">Can I use the tool without internet connection?</h3>
+                <p class="text-gray-600">Yes, the tool is a PWA (Progressive Web App) that you can install on your device. Once installed, it works completely offline.</p>
             </div>
             <div class="faq-question">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">¿Cómo instalo la aplicación en mi dispositivo?</h3>
-                <p class="text-gray-600">En Chrome/Edge de escritorio, haz clic en el ícono de instalación en la barra de direcciones. En dispositivos móviles, selecciona "Agregar a pantalla principal" en el menú del navegador. La app se instalará y podrás acceder directamente desde tu escritorio o pantalla de inicio.</p>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">How do I install the application on my device?</h3>
+                <p class="text-gray-600">On desktop Chrome/Edge, click the installation icon in the address bar. On mobile devices, select "Add to Home Screen" from the browser menu. The app will install and you can access it directly from your desktop or home screen.</p>
             </div>
             <div class="faq-question">
-                <h3 class="text-lg font-semibold text-gray-800 mb-2">¿Qué ventajas tiene instalar la app?</h3>
-                <p class="text-gray-600">Al instalar la app, podrás acceder más rápidamente, trabajar sin conexión a internet, y tener una experiencia más fluida similar a una aplicación nativa. Además, ocupará menos espacio en caché que usar la versión web.</p>
+                <h3 class="text-lg font-semibold text-gray-800 mb-2">What are the advantages of installing the app?</h3>
+                <p class="text-gray-600">By installing the app, you can access it faster, work offline, and have a smoother experience similar to a native application. It will also take up less cache space than using the web version.</p>
             </div>
         </div>
     </div>
 
     <footer class="w-full py-4 text-center text-gray-600 text-sm mt-auto">
-        Desarrollado por <a href="https://www.martinaberastegue.com" class="text-blue-600 hover:text-gray-800" target="_blank" rel="noopener noreferrer">Martin Aberastegue</a>.<br>
-        Inspirado en <a href="https://saferlayer.com" class="text-blue-600 hover:text-gray-800" target="_blank" rel="noopener noreferrer">Saferlayer.com</a> y adaptado al caso de uso del DNI Argentino.
+        Developed by <a href="https://www.martinaberastegue.com" class="text-blue-600 hover:text-gray-800" target="_blank" rel="noopener noreferrer">Martin Aberastegue</a>.<br>
+        Inspired by <a href="https://saferlayer.com" class="text-blue-600 hover:text-gray-800" target="_blank" rel="noopener noreferrer">Saferlayer.com</a> and adapted for Argentine ID use case.
     </footer>
-    <a href="https://www.iubenda.com/privacy-policy/69980701" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe" target="_blank" rel="noopener noreferrer" title="Política de Privacidad">Política de Privacidad</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+    <a href="https://www.iubenda.com/privacy-policy/69980701" class="iubenda-white iubenda-noiframe iubenda-embed iubenda-noiframe" target="_blank" rel="noopener noreferrer" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src="https://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
 
     <script>
         /**
-         * SAFE ID - Herramienta de Protección de DNI
+         * SAFE ID - ID Protection Tool
          * 
-         * Esta herramienta procesa las imágenes completamente en el navegador del usuario.
-         * No se realiza ninguna carga de imágenes a servidores externos.
-         * Todo el procesamiento de imágenes y datos se realiza localmente.
+         * This tool processes images completely in the user's browser.
+         * No images are uploaded to external servers.
+         * All image and data processing is done locally.
          */
 
-        // Referencias a elementos del DOM para la interfaz de usuario
+        // DOM element references for the user interface
         const step1 = document.getElementById('step1');
         const step2 = document.getElementById('step2');
         const step3 = document.getElementById('step3');
@@ -215,26 +216,26 @@
         const blurInstructions = document.getElementById('blurInstructions');
         
         /**
-         * Configuración de los canvases para el procesamiento de imágenes
-         * Se utilizan dos canvases:
-         * - originalCanvas: mantiene la imagen original con las áreas ofuscadas
-         * - canvas: muestra el resultado final con la marca de agua
+         * Canvas configuration for image processing
+         * Two canvases are used:
+         * - originalCanvas: keeps the original image with obscured areas
+         * - canvas: shows the final result with watermark
          * 
-         * willReadFrequently: true -> Optimiza el rendimiento para operaciones frecuentes de lectura de píxeles
+         * willReadFrequently: true -> Optimizes performance for frequent pixel read operations
          */
         const originalCanvas = document.getElementById('originalCanvas');
         const originalCtx = originalCanvas.getContext('2d', { willReadFrequently: true });
         const canvas = document.getElementById('canvas');
         const ctx = canvas.getContext('2d', { willReadFrequently: true });
         
-        // Variables de estado para el control de la aplicación
-        let img = new Image();           // Almacena la imagen cargada
-        let painting = false;            // Controla el estado de pintado/ofuscación
-        let blurEnabled = false;         // Controla si el modo ofuscación está activo
+        // State variables for application control
+        let img = new Image();           // Stores the loaded image
+        let painting = false;            // Controls painting/obscuring state
+        let blurEnabled = false;         // Controls if blur mode is active
 
         /**
-         * Configuración de calidad para el procesamiento de imágenes
-         * Asegura que las imágenes mantengan la mejor calidad posible durante el procesamiento
+         * Quality settings for image processing
+         * Ensures images maintain the best possible quality during processing
          */
         originalCtx.imageSmoothingEnabled = true;
         originalCtx.imageSmoothingQuality = 'high';
@@ -242,8 +243,8 @@
         ctx.imageSmoothingQuality = 'high';
 
         /**
-         * Sistema de contador de caracteres para la marca de agua
-         * Limita y muestra la cantidad de caracteres ingresados (máximo 60)
+         * Character counter system for watermark
+         * Limits and displays the number of characters entered (maximum 60)
          */
         const watermarkInput = document.getElementById('watermarkText');
         const charCount = document.getElementById('charCount');
@@ -253,27 +254,27 @@
         });
 
         /**
-         * Manejador de carga de imágenes
-         * - Valida el tipo de archivo (solo JPG y PNG)
-         * - Procesa la imagen localmente sin enviarla a ningún servidor
-         * - Muestra una vista previa en la interfaz
+         * Image loader handler
+         * - Validates file type (JPG and PNG only)
+         * - Processes image locally without sending to any server
+         * - Shows preview in interface
          */
         document.getElementById('imageInput').addEventListener('change', function(e) {
             if (e.target.files[0]) {
                 const file = e.target.files[0];
                 const fileLabel = this.parentElement.querySelector('p');
                 
-                // Validación de seguridad: solo permite formatos de imagen seguros
+                // Security validation: only allows safe image formats
                 const validTypes = ['image/jpeg', 'image/jpg', 'image/png'];
                 if (!validTypes.includes(file.type)) {
                     alert('Por favor sube un archivo en formato JPG o PNG');
-                    this.value = ''; // Limpia el input por seguridad
+                    this.value = ''; // Clears input for security
                     return;
                 }
                 
                 fileLabel.textContent = file.name;
                 
-                // Procesamiento local de la imagen para vista previa
+                // Local image processing for preview
                 const reader = new FileReader();
                 reader.onload = function(e) {
                     const previewImg = document.createElement('img');
@@ -292,8 +293,8 @@
         });
 
         /**
-         * Sistema de transición entre pasos
-         * Maneja la visibilidad y animaciones entre las diferentes etapas del proceso
+         * Step transition system
+         * Handles visibility and animations between different process stages
          */
         function showStep(stepToShow) {
             [step1, step2, step3].forEach(step => {
@@ -309,23 +310,23 @@
         }
 
         /**
-         * Cargador de imágenes seguro
-         * - Procesa la imagen manteniendo las dimensiones originales
-         * - No reduce la calidad de la imagen
-         * - Mantiene todo el procesamiento en el dispositivo del usuario
+         * Safe image loader
+         * - Processes image maintaining original dimensions
+         * - Does not reduce image quality
+         * - Keeps all processing on user's device
          */
         function loadImage(file) {
             const reader = new FileReader();
             reader.onload = function (e) {
                 img = new Image();
                 img.onload = function () {
-                    // Mantiene las dimensiones originales para no perder calidad
+                    // Maintains original dimensions to not lose quality
                     originalCanvas.width = canvas.width = img.width;
                     originalCanvas.height = canvas.height = img.height;
                     originalCtx.drawImage(img, 0, 0, img.width, img.height);
                     ctx.drawImage(img, 0, 0, img.width, img.height);
                     
-                    // Ajusta el tamaño visual manteniendo la proporción
+                    // Adjusts visual size maintaining proportion
                     originalCanvas.style.width = canvas.style.width = '100%';
                     originalCanvas.style.height = canvas.style.height = 'auto';
                     originalCanvas.style.maxWidth = canvas.style.maxWidth = '100%';
@@ -342,8 +343,8 @@
         }
 
         /**
-         * Validación y procesamiento del paso inicial
-         * Verifica que se hayan proporcionado todos los datos necesarios
+         * Initial step validation and processing
+         * Verifies that all necessary data has been provided
          */
         nextToPreviewBtn.addEventListener('click', () => {
             const imageInput = document.getElementById('imageInput');
@@ -367,8 +368,8 @@
         });
 
         /**
-         * Sistema de control de ofuscación
-         * Permite al usuario ajustar la intensidad del efecto de blur
+         * Blur control system
+         * Allows user to adjust blur effect intensity
          */
         const blurIntensity = document.getElementById('blurIntensity');
         const blurValue = document.getElementById('blurValue');
@@ -385,8 +386,8 @@
         });
 
         /**
-         * Control del modo ofuscación
-         * Activa/desactiva la capacidad de ofuscar áreas sensibles
+         * Blur mode control
+         * Activates/deactivates ability to blur sensitive areas
          */
         enableBlurBtn.addEventListener('click', () => {
             blurEnabled = !blurEnabled;
@@ -400,7 +401,7 @@
             }
         });
 
-        // Navegación entre pasos
+        // Step navigation
         nextToWatermarkBtn.addEventListener('click', () => {
             showStep(step3);
             applyWatermark();
@@ -411,9 +412,9 @@
         });
 
         /**
-         * Sistema de descarga segura
-         * Genera la imagen final en el dispositivo del usuario
-         * No se realiza ninguna carga a servidores externos
+         * Safe download system
+         * Generates final image on user's device
+         * No uploads to external servers are performed
          */
         document.getElementById('downloadBtn').addEventListener('click', () => {
             const link = document.createElement('a');
@@ -423,17 +424,17 @@
         });
 
         /**
-         * Sistema de compartir
-         * Utiliza la Web Share API para compartir la imagen
-         * Solo disponible en navegadores y dispositivos compatibles
+         * Share system
+         * Uses Web Share API to share the image
+         * Only available on compatible browsers and devices
          */
         document.getElementById('shareBtn').addEventListener('click', async () => {
             try {
-                // Convertir el canvas a un Blob
+                // Convert canvas to Blob
                 const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
                 const file = new File([blob], 'safeid_datosargentinoscom.png', { type: 'image/png' });
 
-                // Verificar si el navegador soporta Web Share API
+                // Check if browser supports Web Share API
                 if (navigator.share) {
                     await navigator.share({
                         title: 'DNI Protegido',
@@ -441,7 +442,7 @@
                         files: [file]
                     });
                 } else {
-                    // Fallback para navegadores que no soportan Web Share API
+                    // Fallback for browsers that don't support Web Share API
                     const link = document.createElement('a');
                     link.download = 'safeid_datosargentinoscom.png';
                     link.href = canvas.toDataURL('image/png');
@@ -449,7 +450,7 @@
                 }
             } catch (error) {
                 console.error('Error al compartir:', error);
-                // Si hay un error, intentamos descargar como fallback
+                // If there's an error, try downloading as fallback
                 const link = document.createElement('a');
                 link.download = 'safeid_datosargentinoscom.png';
                 link.href = canvas.toDataURL('image/png');
@@ -458,9 +459,9 @@
         });
 
         /**
-         * Sistema de ofuscación interactivo
-         * Maneja eventos de mouse y touch para permitir al usuario
-         * ofuscar áreas específicas de la imagen
+         * Interactive blur system
+         * Handles mouse and touch events to allow user
+         * to blur specific areas of the image
          */
         originalCanvas.addEventListener('mousedown', (event) => {
             if (blurEnabled) {
@@ -476,7 +477,7 @@
             }
         });
 
-        // Soporte para dispositivos táctiles
+        // Touch device support
         originalCanvas.addEventListener('touchstart', (event) => {
             if (blurEnabled) {
                 event.preventDefault();
@@ -498,9 +499,9 @@
         });
 
         /**
-         * Funciones de cálculo de posición para ofuscación
-         * Convierten las coordenadas de pantalla a coordenadas de imagen
-         * considerando el escalado y posición del canvas
+         * Position calculation functions for blurring
+         * Convert screen coordinates to image coordinates
+         * considering canvas scaling and position
          */
         function blurAtMouse(event) {
             const rect = originalCanvas.getBoundingClientRect();
@@ -522,9 +523,9 @@
         }
 
         /**
-         * Algoritmo de ofuscación
-         * Implementa un efecto de blur gaussiano para proteger información sensible
-         * El proceso es irreversible y se realiza localmente
+         * Blur algorithm
+         * Implements a gaussian blur effect to protect sensitive information
+         * The process is irreversible and performed locally
          */
         function applyBlur(x, y) {
             const radius = parseInt(cursorSize.value);
@@ -552,8 +553,8 @@
         }
 
         /**
-         * Función auxiliar para el cálculo de blur
-         * Promedia los píxeles vecinos para crear el efecto de desenfoque
+         * Helper function for blur calculation
+         * Averages neighboring pixels to create blur effect
          */
         function getNeighborPixels(pixels, x, y, diameter) {
             const intensity = parseInt(blurIntensity.value);
@@ -587,16 +588,16 @@
         }
 
         /**
-         * Sistema de marca de agua
-         * Aplica una marca de agua visible y persistente a la imagen
-         * El proceso es irreversible y se realiza en múltiples capas
-         * para prevenir la eliminación de la marca de agua
+         * Watermark system
+         * Applies a visible and persistent watermark to the image
+         * The process is irreversible and performed in multiple layers
+         * to prevent watermark removal
          */
         function applyWatermark() {
             const watermarkText = watermarkInput.value;
             ctx.drawImage(originalCanvas, 0, 0);
             
-            // Convierte la imagen a escala de grises para mejor contraste con la marca de agua
+            // Convert image to grayscale for better contrast with watermark
             const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             const data = imageData.data;
             for (let i = 0; i < data.length; i += 4) {
@@ -605,7 +606,7 @@
             }
             ctx.putImageData(imageData, 0, 0);
 
-            // Calcula el tamaño de fuente proporcional a la imagen
+            // Calculate font size proportional to image
             const minFontSize = 16;
             const maxFontSize = 32;
             const baseFontSize = Math.min(canvas.width, canvas.height) / 30;
@@ -614,18 +615,18 @@
             ctx.font = `${fontSize}px Arial`;
             ctx.textAlign = 'center';
             
-            // Calcula el espaciado para la repetición de la marca de agua
+            // Calculate spacing for watermark repetition
             const textWidth = ctx.measureText(watermarkText).width;
             const horizontalSpacing = textWidth * 1.2;
             const verticalSpacing = fontSize * 1.2;
 
-            // Configura la transformación para el patrón diagonal
+            // Set up transformation for diagonal pattern
             ctx.save();
             ctx.translate(canvas.width/2, canvas.height/2);
             ctx.rotate(-Math.PI / 6);
             ctx.translate(-canvas.width/2, -canvas.height/2);
 
-            // Calcula el área de cobertura para la marca de agua
+            // Calculate coverage area for watermark
             const diagonal = Math.sqrt(canvas.width * canvas.width + canvas.height * canvas.height);
             const startX = -diagonal/2;
             const startY = -diagonal/2;
@@ -633,9 +634,9 @@
             const endY = diagonal * 1.5;
 
             /**
-             * Función para crear el efecto ondulado en el texto
-             * Añade variación y complejidad a la marca de agua
-             * para dificultar su eliminación
+             * Function to create wavy text effect
+             * Adds variation and complexity to watermark
+             * to make it harder to remove
              */
             const drawWavyText = (text, x, y, amplitude, frequency) => {
                 const characters = text.split('');
@@ -648,11 +649,11 @@
                     const yOffset = amplitude * Math.sin(frequency * waveX + baselineY * 0.05);
                     const xOffset = amplitude * 0.3 * Math.cos(frequency * waveX + baselineY * 0.05);
                     
-                    // Capa de sombra para mejorar legibilidad
+                    // Shadow layer for better readability
                     ctx.globalAlpha = 0.1;
                     ctx.fillText(char, currentX + xOffset + 1, baselineY + yOffset + 1);
                     
-                    // Capa principal del texto
+                    // Main text layer
                     ctx.globalAlpha = 0.35;
                     ctx.fillText(char, currentX + xOffset, baselineY + yOffset);
                     
@@ -660,31 +661,31 @@
                 });
             };
 
-            // Paleta de colores para la marca de agua
+            // Color palette for watermark
             const colors = [
-                'rgba(230, 110, 110, 0.7)',  // Rojo claro
-                'rgba(140, 171, 111, 0.7)',  // Verde oliva
-                'rgba(124, 128, 194, 0.7)',  // Azul grisáceo
-                'rgba(186, 85, 211, 0.7)',   // Púrpura
-                'rgba(255, 165, 0, 0.7)',    // Naranja
-                'rgba(75, 0, 130, 0.7)',     // Índigo
-                'rgba(64, 224, 208, 0.7)',   // Turquesa
-                'rgba(255, 20, 147, 0.7)',   // Rosa intenso
-                'rgba(255, 215, 0, 0.7)',    // Dorado
-                'rgba(0, 128, 128, 0.7)',    // Verde azulado
-                'rgba(219, 112, 147, 0.7)',  // Rosa pálido
-                'rgba(106, 90, 205, 0.7)',   // Azul pizarra
-                'rgba(255, 99, 71, 0.7)',    // Tomate
-                'rgba(147, 112, 219, 0.7)',  // Púrpura medio
-                'rgba(60, 179, 113, 0.7)',   // Verde mar medio
-                'rgba(238, 130, 238, 0.7)',  // Violeta
-                'rgba(218, 165, 32, 0.7)',   // Dorado oscuro
-                'rgba(72, 209, 204, 0.7)',   // Turquesa medio
-                'rgba(199, 21, 133, 0.7)',   // Magenta medio
-                'rgba(255, 140, 0, 0.7)'     // Naranja oscuro
+                'rgba(230, 110, 110, 0.7)',  // Light red
+                'rgba(140, 171, 111, 0.7)',  // Olive green
+                'rgba(124, 128, 194, 0.7)',  // Grayish blue
+                'rgba(186, 85, 211, 0.7)',   // Purple
+                'rgba(255, 165, 0, 0.7)',    // Orange
+                'rgba(75, 0, 130, 0.7)',     // Indigo
+                'rgba(64, 224, 208, 0.7)',   // Turquoise
+                'rgba(255, 20, 147, 0.7)',   // Deep pink
+                'rgba(255, 215, 0, 0.7)',    // Gold
+                'rgba(0, 128, 128, 0.7)',    // Teal
+                'rgba(219, 112, 147, 0.7)',  // Pale pink
+                'rgba(106, 90, 205, 0.7)',   // Slate blue
+                'rgba(255, 99, 71, 0.7)',    // Tomato
+                'rgba(147, 112, 219, 0.7)',  // Medium purple
+                'rgba(60, 179, 113, 0.7)',   // Medium sea green
+                'rgba(238, 130, 238, 0.7)',  // Violet
+                'rgba(218, 165, 32, 0.7)',   // Dark goldenrod
+                'rgba(72, 209, 204, 0.7)',   // Medium turquoise
+                'rgba(199, 21, 133, 0.7)',   // Medium magenta
+                'rgba(255, 140, 0, 0.7)'     // Dark orange
             ];
 
-            // Aplica el patrón de marca de agua en toda la imagen
+            // Apply watermark pattern across the image
             for (let y = startY; y < endY; y += verticalSpacing) {
                 let offsetX = (Math.floor(y / verticalSpacing) % 2) * (horizontalSpacing / 2);
                 
@@ -701,9 +702,9 @@
         }
 
         /**
-         * Sistema de comparación visual
-         * Permite al usuario comparar la imagen original con la versión protegida
-         * mediante un control deslizante interactivo
+         * Visual comparison system
+         * Allows user to compare original image with protected version
+         * using an interactive slider control
          */
         const comparisonSlider = document.querySelector('.comparison-slider');
         const sliderHandle = document.querySelector('.slider-handle');
@@ -722,21 +723,21 @@
             originalImg.style.maxWidth = 'none';
         }
 
-        // Eventos para el control deslizante
+        // Slider control events
         sliderHandle.addEventListener('mousedown', () => isSliderDragging = true);
         document.addEventListener('mousemove', (e) => {
             if (isSliderDragging) updateSliderPosition(e.clientX);
         });
         document.addEventListener('mouseup', () => isSliderDragging = false);
 
-        // Soporte táctil para el control deslizante
+        // Touch support for slider control
         sliderHandle.addEventListener('touchstart', () => isSliderDragging = true);
         document.addEventListener('touchmove', (e) => {
             if (isSliderDragging) updateSliderPosition(e.touches[0].clientX);
         });
         document.addEventListener('touchend', () => isSliderDragging = false);
 
-        // Registro del Service Worker. Esto nos permite que la herramienta funcione offline como PWA.
+        // Service Worker registration. This allows the tool to work offline as a PWA.
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
                 navigator.serviceWorker.register('/sw.js')
@@ -750,4 +751,4 @@
         }
     </script>
 </body>
-</html>
+</html> 
