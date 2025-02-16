@@ -18,7 +18,7 @@ Accede a la herramienta en: https://datosargentinos.com
 - 📲 Compatible con PWA (instalable como app)
 - 🌐 Funciona sin conexión (offline)
 
-## ��️ Seguridad
+## 🔐 Seguridad
 
 - Todo el procesamiento se realiza en el navegador del usuario
 - No se almacena ninguna imagen en servidores externos
