@@ -1083,10 +1083,34 @@
                 navigator.serviceWorker.register('/sw.js')
                     .then(registration => {
                         console.log('Service Worker registered successfully:', registration.scope);
+                        
+                        // Check for updates every time the page loads
+                        registration.addEventListener('updatefound', () => {
+                            const newWorker = registration.installing;
+                            newWorker.addEventListener('statechange', () => {
+                                if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                    // New version available
+                                    if (confirm('New version available. Update now?')) {
+                                        newWorker.postMessage('skipWaiting');
+                                        window.location.reload();
+                                    }
+                                }
+                            });
+                        });
+
+                        // Check if there's an existing service worker
+                        if (registration.active) {
+                            registration.update();
+                        }
                     })
                     .catch(error => {
                         console.log('Error registering Service Worker:', error);
                     });
+
+                // Handle updates when the service worker is already active
+                navigator.serviceWorker.addEventListener('controllerchange', () => {
+                    window.location.reload();
+                });
             });
         }
     </script>
