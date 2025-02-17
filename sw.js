@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v2';
+const CACHE_VERSION = 'v3';
 const CACHE_NAME = `safe-id-${CACHE_VERSION}`;
 const urlsToCache = [
   '/',
@@ -6,8 +6,6 @@ const urlsToCache = [
   '/index-en.html',
   '/manifest.json',
   '/logo.png',
-  '/dni-before.png',
-  '/dni-after.png',
   '/android-chrome-192x192.png',
   '/android-chrome-512x512.png',
   'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
