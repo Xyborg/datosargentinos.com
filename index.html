@@ -116,6 +116,13 @@
                     </label>
                     <input type="range" id="cursorSize" min="5" max="50" value="10" 
                         class="w-full h-2 bg-purple-200 rounded-lg appearance-none cursor-pointer">
+                    
+                    <div class="crop-buttons-container mt-4">
+                        <button id="undoBlurBtn" disabled
+                            class="px-8 py-3 rounded-lg font-semibold text-white text-base hover:opacity-90 transition-all" style="background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%); min-width: 140px; box-shadow: 0 2px 4px rgba(75, 85, 99, 0.2);">
+                            Deshacer Última Ofuscación
+                        </button>
+                    </div>
                 </div>
                 <div id="blurInstructions" class="bg-purple-50 text-purple-700 p-4 rounded-lg" style="display: none;">
                     Haz clic y arrastra para ofuscar áreas sensibles, y luego aplica la marca de agua
@@ -593,6 +600,46 @@
         const cursorSizeValue = document.getElementById('cursorSizeValue');
         const blurControls = document.getElementById('blurControls');
 
+        // Add state history tracking for undo
+        let canvasStateHistory = [];
+        let currentStateIndex = -1;
+        const MAX_HISTORY_STATES = 20;
+        let strokeInProgress = false;
+
+        function saveCanvasState() {
+            // Only save state if we're not in the middle of a stroke
+            if (!strokeInProgress) {
+                // Remove any states after current index if we branched
+                canvasStateHistory = canvasStateHistory.slice(0, currentStateIndex + 1);
+                
+                // Save current canvas state
+                const imageData = originalCtx.getImageData(0, 0, originalCanvas.width, originalCanvas.height);
+                
+                // If we reached max history, remove oldest state
+                if (canvasStateHistory.length >= MAX_HISTORY_STATES) {
+                    canvasStateHistory.shift();
+                    currentStateIndex--;
+                }
+                
+                canvasStateHistory.push(imageData);
+                currentStateIndex++;
+                
+                // Enable/disable undo button based on history
+                document.getElementById('undoBlurBtn').disabled = currentStateIndex <= 0;
+            }
+        }
+
+        function undoBlur() {
+            if (currentStateIndex > 0) {
+                currentStateIndex--;
+                const previousState = canvasStateHistory[currentStateIndex];
+                originalCtx.putImageData(previousState, 0, 0);
+                
+                // Update undo button state
+                document.getElementById('undoBlurBtn').disabled = currentStateIndex <= 0;
+            }
+        }
+
         blurIntensity.addEventListener('input', function() {
             blurValue.textContent = this.value;
         });
@@ -612,10 +659,20 @@
             enableBlurBtn.textContent = blurEnabled ? 'Desactivar Modo Ofuscación' : 'Ofuscar Datos';
             enableBlurBtn.classList.toggle('opacity-75');
             
-            if (blurEnabled && 'ontouchstart' in window) {
-                blurInstructions.textContent = 'Toca y arrastra para ofuscar áreas sensibles, luego aplica la marca de agua';
+            if (blurEnabled) {
+                // Initialize state history when enabling blur mode
+                canvasStateHistory = [];
+                currentStateIndex = -1;
+                saveCanvasState(); // Save initial state
+                
+                if ('ontouchstart' in window) {
+                    blurInstructions.textContent = 'Toca y arrastra para ofuscar áreas sensibles, luego aplica la marca de agua';
+                }
             }
         });
+
+        // Add undo button event listener
+        document.getElementById('undoBlurBtn').addEventListener('click', undoBlur);
 
         // Navegación entre pasos
         nextToWatermarkBtn.addEventListener('click', () => {
@@ -685,11 +742,18 @@
         originalCanvas.addEventListener('mousedown', (event) => {
             if (blurEnabled) {
                 painting = true;
+                strokeInProgress = true;
                 blurAtMouse(event);
             }
         });
         
-        originalCanvas.addEventListener('mouseup', () => painting = false);
+        originalCanvas.addEventListener('mouseup', () => {
+            painting = false;
+            if (strokeInProgress) {
+                strokeInProgress = false;
+                saveCanvasState();
+            }
+        });
         originalCanvas.addEventListener('mousemove', (event) => {
             if (painting && blurEnabled) {
                 blurAtMouse(event);
@@ -701,6 +765,7 @@
             if (blurEnabled) {
                 event.preventDefault(); // Prevenir scroll mientras se ofusca
                 painting = true;
+                strokeInProgress = true;
                 blurAtTouch(event);
             }
         });
@@ -708,6 +773,10 @@
         originalCanvas.addEventListener('touchend', (event) => {
             event.preventDefault();
             painting = false;
+            if (strokeInProgress) {
+                strokeInProgress = false;
+                saveCanvasState();
+            }
         });
 
         originalCanvas.addEventListener('touchmove', (event) => {
@@ -756,6 +825,12 @@
          * @param {number} y - Coordenada Y del centro del área a ofuscar
          */
         function applyBlur(x, y) {
+            // Only save state before first blur in a stroke
+            if (!strokeInProgress) {
+                saveCanvasState();
+                strokeInProgress = true;
+            }
+            
             // Obtener el radio del pincel de ofuscación del control de usuario
             const radius = parseInt(cursorSize.value);
             const diameter = radius * 2;
