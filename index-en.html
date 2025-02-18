@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -971,9 +972,9 @@
             ctx.putImageData(imageData, 0, 0);
 
             // Calculate adaptive font size
-            const minFontSize = 16;
-            const maxFontSize = 32;
-            const baseFontSize = Math.min(canvas.width, canvas.height) / 30;
+            const minFontSize = 8;
+            const maxFontSize = 22;
+            const baseFontSize = Math.min(canvas.width, canvas.height) / 40;
             const fontSize = Math.min(maxFontSize, Math.max(minFontSize, baseFontSize));
             
             // Configure text style
@@ -1065,8 +1066,8 @@
                 
                 for (let x = startX + offsetX; x < endX; x += horizontalSpacing) {
                     // Wave parameters for text
-                    const amplitude = fontSize * 0.3;
-                    const frequency = 0.02;
+                    const amplitude = fontSize * 0.4;
+                    const frequency = 0.04;
                     // Select random color for each text instance
                     ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
                     drawWavyText(watermarkText, x, y, amplitude, frequency);

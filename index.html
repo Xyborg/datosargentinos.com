@@ -960,9 +960,9 @@
             ctx.putImageData(imageData, 0, 0);
 
             // Calcular tamaño de fuente adaptativo
-            const minFontSize = 16;
-            const maxFontSize = 32;
-            const baseFontSize = Math.min(canvas.width, canvas.height) / 30;
+            const minFontSize = 8;
+            const maxFontSize = 22;
+            const baseFontSize = Math.min(canvas.width, canvas.height) / 40;
             const fontSize = Math.min(maxFontSize, Math.max(minFontSize, baseFontSize));
             
             // Configurar estilo del texto
@@ -1023,26 +1023,28 @@
             // Paleta de colores para la marca de agua
             // Colores semi-transparentes para mejor integración visual
             const colors = [
-                'rgba(230, 110, 110, 0.7)',  // Rojo claro
-                'rgba(140, 171, 111, 0.7)',  // Verde oliva
-                'rgba(124, 128, 194, 0.7)',  // Azul grisáceo
-                'rgba(186, 85, 211, 0.7)',   // Púrpura
-                'rgba(255, 165, 0, 0.7)',    // Naranja
-                'rgba(75, 0, 130, 0.7)',     // Índigo
-                'rgba(64, 224, 208, 0.7)',   // Turquesa
-                'rgba(255, 20, 147, 0.7)',   // Rosa intenso
-                'rgba(255, 215, 0, 0.7)',    // Dorado
-                'rgba(0, 128, 128, 0.7)',    // Verde azulado
-                'rgba(219, 112, 147, 0.7)',  // Rosa pálido
-                'rgba(106, 90, 205, 0.7)',   // Azul pizarra
-                'rgba(255, 99, 71, 0.7)',    // Tomate
-                'rgba(147, 112, 219, 0.7)',  // Púrpura medio
-                'rgba(60, 179, 113, 0.7)',   // Verde mar medio
-                'rgba(238, 130, 238, 0.7)',  // Violeta
-                'rgba(218, 165, 32, 0.7)',   // Dorado oscuro
-                'rgba(72, 209, 204, 0.7)',   // Turquesa medio
-                'rgba(199, 21, 133, 0.7)',   // Magenta medio
-                'rgba(255, 140, 0, 0.7)'     // Naranja oscuro
+                'rgba(230, 110, 110, 0.7)',  // Light red
+                'rgba(140, 171, 111, 0.7)',  // Olive green
+                'rgba(230, 110, 110, 0.7)',  // Light red
+                'rgba(140, 171, 111, 0.7)',  // Olive green
+                'rgba(124, 128, 194, 0.7)',  // Grayish blue
+                'rgba(186, 85, 211, 0.7)',   // Purple
+                'rgba(255, 165, 0, 0.7)',    // Orange
+                'rgba(75, 0, 130, 0.7)',     // Indigo
+                'rgba(64, 224, 208, 0.7)',   // Turquoise
+                'rgba(255, 20, 147, 0.7)',   // Deep pink
+                'rgba(255, 215, 0, 0.7)',    // Gold
+                'rgba(0, 128, 128, 0.7)',    // Teal
+                'rgba(219, 112, 147, 0.7)',  // Pale pink
+                'rgba(106, 90, 205, 0.7)',   // Slate blue
+                'rgba(255, 99, 71, 0.7)',    // Tomato
+                'rgba(147, 112, 219, 0.7)',  // Medium purple
+                'rgba(60, 179, 113, 0.7)',   // Medium sea green
+                'rgba(238, 130, 238, 0.7)',  // Violet
+                'rgba(218, 165, 32, 0.7)',   // Dark gold
+                'rgba(72, 209, 204, 0.7)',   // Medium turquoise
+                'rgba(199, 21, 133, 0.7)',   // Medium magenta
+                'rgba(255, 140, 0, 0.7)'     // Dark orange
             ];
 
             // Aplicar el patrón de marca de agua en toda la imagen
@@ -1052,8 +1054,8 @@
                 
                 for (let x = startX + offsetX; x < endX; x += horizontalSpacing) {
                     // Parámetros de la onda para el texto
-                    const amplitude = fontSize * 0.3;
-                    const frequency = 0.02;
+                    const amplitude = fontSize * 0.8;
+                    const frequency = 0.04;
                     // Seleccionar color aleatorio para cada instancia del texto
                     ctx.fillStyle = colors[Math.floor(Math.random() * colors.length)];
                     drawWavyText(watermarkText, x, y, amplitude, frequency);
