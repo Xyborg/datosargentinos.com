@@ -61,21 +61,24 @@
             </label>
             <div class="relative">
                 <div class="relative">
-                    <div class="relative">
-                        <input type="text" id="watermarkText" maxlength="60" placeholder="Ingresa el texto de la marca de agua (máx. 60 caracteres)" 
+                    <input type="text" id="watermarkText" maxlength="60" placeholder="Ingresa el texto de la marca de agua (máx. 60 caracteres)" 
                             class="w-full p-4 pr-16 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all text-center text-lg">
-                        <span class="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-500">
-                            <span id="charCount">0</span>/60
-                        </span>
-                    </div>
-                    <p class="mt-2 text-sm text-gray-600 bg-blue-50 p-3 rounded-lg">
-                        <strong>Tip Marca de Agua:</strong> Para mayor seguridad, incluye el nombre completo del destinatario y el motivo específico (ej: "Para Juan Pérez - Validación de identidad en Banco XYZ")
-                    </p>
+                    <span class="absolute right-4 top-1/2 -translate-y-1/2 text-sm text-gray-500">
+                        <span id="charCount">0</span>/60
+                    </span>
                 </div>
+                <p class="mt-2 text-sm text-gray-600 bg-blue-50 p-3 rounded-lg">
+                    <strong>Tip Marca de Agua:</strong> Para mayor seguridad, incluye el nombre completo del destinatario y el motivo específico (ej: "Para Juan Pérez - Validación de identidad en Banco XYZ")
+                </p>
             </div>
+
             <button id="nextToPreviewBtn" class="w-full gradient-button text-white py-4 rounded-lg text-lg font-semibold hover:opacity-90">
                 Siguiente
             </button>
+
+            <div class="mt-4 text-center">
+                <p class="text-sm text-gray-600">Tu documento se procesa localmente, sin enviar información a servidores externos.</p>
+            </div>
         </div>
 
         <!-- Step 2: Preview and Blur -->
