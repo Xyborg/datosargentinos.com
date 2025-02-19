@@ -701,7 +701,7 @@
                 saveCanvasState(); // Save initial state
                 
                 if ('ontouchstart' in window) {
-                    blurInstructions.textContent = 'Touch and drag to blur sensitive areas, then apply watermark';
+                    blurInstructions.innerHTML = 'Touch and drag to blur sensitive areas, then apply watermark<br /><span style="font-size: 0.8rem;">Example: Document number, Bar/QR codes, Unnecessary information.</span>';
                 }
             }
         });

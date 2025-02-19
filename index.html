@@ -687,7 +687,7 @@
                 saveCanvasState(); // Save initial state
                 
                 if ('ontouchstart' in window) {
-                    blurInstructions.textContent = 'Toca y arrastra para ofuscar áreas sensibles, luego aplica la marca de agua';
+                    blurInstructions.innerHTML = 'Toca y arrastra para ofuscar áreas sensibles, luego aplica la marca de agua<br /><span style="font-size: 0.8rem;">Ejemplo: Número de trámite, Códigos de barras/QR, Información innecesaria.</span>';
                 }
             }
         });
